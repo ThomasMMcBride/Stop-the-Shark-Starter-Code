@@ -22,6 +22,7 @@ class Model:
 
         # (TODO) Here, create a class field "self.word_to_guess", and set its initial value to be a random 'choice'
         # *wink *wink from the given list of possible words 
+        # Hint: research random.choice() 
         self.word_to_guess = random.choice(self.possible_words)
 
         # This list will contain the word the player has guessed so far. Starts off as a list of blanks.
@@ -40,22 +41,24 @@ class Model:
     incorrect letters and reduces the number of lives by 1.
 
     Args:
-        letter : String representing a player's guessed letter
+        letter : String representing a player's guessed letter (assumed to be already lowercase)
     Returns:
         nothing 
     """
     def guess_letter(self, letter):
-        # (TODO) Implement guess_letter following the steps below.
+        # (TODO) Implement guess_letter following the comments below.
 
-        # If 'letter' is in the word to guess
+        if letter in self.word_to_guess:
+            for i, char in enumerate(self.word_to_guess):
 
-            # Find the index of 'letter' in the word to guess. 
-            # Hint: Resarch Python's find() function
+                # If 'letter' is equal to 'char'...
 
-            # Set the element at the same index in 'self.word_so_far' to 'letter'. 
-            # Hint: You can set the element of a list using the following syntax...
-            # example_list[index] = new_element
-        
+                    # Set the element at the same index in 'self.word_so_far' to 'letter'. 
+                    # Hint: You can set the element of a list using the following syntax...
+                    # example_list[i] = new_element
+                
+                pass # <- Remove when done! 
+            
         # Else
             #  _Add_ 'letter' to self.incorrect_letters
 
@@ -198,160 +201,170 @@ class View:
         # image at that index
         stages = [
         """
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                     \ ||| / 
-                      \|||/ 
-                       \o/
-                        |
-                       / \\
+
+                 _______
+               /         \\
+              |           |
+              |___________|
+                 \ ||| / 
+                  \|||/ 
+                   \o/
+                    |
+                   / \\
 
              
-            |-
-            |  \\_
-        ____|_____\\____________
+        |-
+        |  \\_
+    ____|_____\\____________
         """,
         """
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                     \ ||| / 
-                      \| |/ 
-                       \o/
-                        |
-                       / \\
+
+                 _______
+               /         \\
+              |           |
+              |___________|
+                 \ ||| / 
+                  \| |/ 
+                   \o/
+                    |
+                   / \\
 
                 
-            |-
-            |  \\_
-        ____|_____\\____________
+        |-
+        |  \\_
+    ____|_____\\____________
         """,
         """
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                     \ ||| / 
-                       \|/ 
-                       \o/
-                        |
-                       / \\
+
+                 _______
+               /         \\
+              |           |
+              |___________|
+                 \ ||| / 
+                   \|/ 
+                   \o/
+                    |
+                   / \\
 
                      
-            |-
-            |  \\_
-        ____|_____\\____________
+        |-
+        |  \\_
+    ____|_____\\____________
         """,
         """
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                     \ ||| / 
-                       | |
-                       \o/
-                        |
-                       / \\
+
+                 _______
+               /         \\
+              |           |
+              |___________|
+                 \ ||| / 
+                   | |
+                   \o/
+                    |
+                   / \\
 
                      
-            |-
-            |  \\_
-        ____|_____\\____________
+        |-
+        |  \\_
+    ____|_____\\____________
         """,
         """
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                     \ | | / 
-                       | |
-                       \o/
-                        |
-                       / \\
+
+                 _______
+               /         \\
+              |           |
+              |___________|
+                 \ | | / 
+                   | |
+                   \o/
+                    |
+                   / \\
 
                      
-            |-
-            |  \\_
-        ____|_____\\____________
+        |-
+        |  \\_
+    ____|_____\\____________
         """,
         """
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                     \ | | / 
-                        |
-                       \o/
-                        |
-                       / \\
+
+                 _______
+               /         \\
+              |           |
+              |___________|
+                 \ | | / 
+                    |
+                   \o/
+                    |
+                   / \\
 
                       
-            |-
-            |  \\_
-        ____|_____\\____________
+        |-
+        |  \\_
+    ____|_____\\____________
         """,
         """
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                     \ | | / 
-                       \o/
-                        |
-                       / \\
+
+                 _______
+               /         \\
+              |           |
+              |___________|
+                 \ | | / 
+                   \o/
+                    |
+                   / \\
 
                   
-            |-
-            |  \\_
-        ____|_____\\____________
+        |-
+        |  \\_
+    ____|_____\\____________
         """,
         """
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                      | | |    
-                       \o/
-                        |
-                       / \\
 
-            
-            |-
-            |  \\_
-        ____|_____\\____________
+                 _______
+               /         \\
+              |           |
+              |___________|
+                  | | |    
+                   \o/
+                    |
+                   / \\
+
+           
+        |-
+        |  \\_
+    ____|_____\\____________
         """,
         """
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                       | |     
-                       \o/
-                        |
-                       / \\
+        
+                 _______
+               /         \\
+              |           |
+              |___________|
+                   | |     
+                   \o/
+                    |
+                   / \\
 
               
-            |-
-            |  \\_
-        ____|_____\\____________
+        |-
+        |  \\_
+    ____|_____\\____________
         """,
         """
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                       |    
-                       \o/
-                        |
-                       / \\
+
+                 _______
+               /         \\
+              |           |
+              |___________|
+                  |    
+                   \o/
+                    |
+                   / \\
 
                
-            |-
-            |  \\_
-        ____|_____\\____________
+        |-
+        |  \\_
+    ____|_____\\____________
         """,
         """ 
 
@@ -363,176 +376,176 @@ class View:
 
 
 
-           mmm food...       
-            |-
-            |  \\_      uh oh...
-        ____|_____\\_____\o/____
+       mmm food...       
+        |-
+        |  \\_      uh oh...
+    ____|_____\\_____\o/____
         """,
         """
-                      phew!
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                     \ ||| / 
-                      \|||/ 
-                       \o/
-                        |
-                       / \\
+                  phew!
+                 _______
+               /         \\
+              |           |
+              |___________|
+                 \ ||| / 
+                  \|||/ 
+                   \o/
+                    |
+                   / \\
 
-        whatever...    
-             -|
-          _/  |
-        /_____|__________________
+    whatever...    
+          -|
+       _/  |
+     /_____|__________________
         """,
         """
-                      phew!
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                     \ ||| / 
-                      \| |/ 
-                       \o/
-                        |
-                       / \\
+                  phew!
+                 _______
+               /         \\
+              |           |
+              |___________|
+                 \ ||| / 
+                  \| |/ 
+                   \o/
+                    |
+                   / \\
 
-        whatever...    
-             -|
-          _/  |
-        /_____|__________________
+    whatever...    
+          -|
+       _/  |
+     /_____|__________________
         """,
         """
-                      phew!
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                     \ ||| / 
-                       \|/ 
-                       \o/
-                        |
-                       / \\
+                  phew!
+                 _______
+               /         \\
+              |           |
+              |___________|
+                 \ ||| / 
+                   \|/ 
+                   \o/
+                    |
+                   / \\
 
-        whatever...    
-             -|
-          _/  |
-        /_____|__________________
+    whatever...    
+          -|
+       _/  |
+     /_____|__________________
         """,
         """
-                      phew!
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                     \ ||| / 
-                       | |
-                       \o/
-                        |
-                       / \\
+                  phew!
+                 _______
+               /         \\
+              |           |
+              |___________|
+                 \ ||| / 
+                   | |
+                   \o/
+                    |
+                   / \\
 
-        whatever...    
-             -|
-          _/  |
-        /_____|__________________
+    whatever...    
+          -|
+       _/  |
+     /_____|__________________
         """,
         """
-                      phew!
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                     \ | | / 
-                       | |
-                       \o/
-                        |
-                       / \\
+                  phew!
+                 _______
+               /         \\
+              |           |
+              |___________|
+                 \ | | / 
+                   | |
+                   \o/
+                    |
+                   / \\
 
-        whatever...    
-             -|
-          _/  |
-        /_____|__________________
+   whatever...    
+          -|
+       _/  |
+     /_____|__________________
         """,
         """
-                      phew!
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                     \ | | / 
-                        |
-                       \o/
-                        |
-                       / \\
+                  phew!
+                 _______
+               /         \\
+              |           |
+              |___________|
+                 \ | | / 
+                    |
+                   \o/
+                    |
+                   / \\
 
-        whatever...    
-             -|
-          _/  |
-        /_____|__________________
+   whatever...    
+          -|
+       _/  |
+     /_____|__________________
         """,
         """
-                      phew!
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                     \ | | / 
-                       \o/
-                        |
-                       / \\
+                  phew!
+                 _______
+               /         \\
+              |           |
+              |___________|
+                 \ | | / 
+                   \o/
+                    |
+                   / \\
 
-        whatever...    
-             -|
-          _/  |
-        /_____|__________________
+   whatever...    
+          -|
+       _/  |
+     /_____|__________________
         """,
         """
-                      phew!
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                      | | |    
-                       \o/
-                        |
-                       / \\
+                  phew!
+                 _______
+               /         \\
+              |           |
+              |___________|
+                  | | |    
+                   \o/
+                    |
+                   / \\
 
-        whatever...    
-             -|
-          _/  |
-        /_____|__________________
+   whatever...    
+          -|
+       _/  |
+     /_____|__________________
         """,
         """
-                      phew!
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                       | |     
-                       \o/
-                        |
-                       / \\
+                  phew!
+                 _______
+               /         \\
+              |           |
+              |___________|
+                   | |     
+                   \o/
+                    |
+                   / \\
 
-        whatever...    
-             -|
-          _/  |
-        /_____|__________________
+   whatever...    
+          -|
+       _/  |
+     /_____|__________________
         """,
         """
-                      phew!
-                     _______
-                   /         \\
-                  |           |
-                  |___________|
-                       |    
-                       \o/
-                        |
-                       / \\
+                  phew!
+                 _______
+               /         \\
+              |           |
+              |___________|
+                   |    
+                   \o/
+                    |
+                   / \\
 
-        whatever...    
-             -|
-          _/  |
-        /_____|__________________
+   whatever...    
+          -|
+       _/  |
+     /_____|__________________
         """]
 
         raise NotImplementedError("Remove this when done.")
@@ -544,7 +557,6 @@ class View:
 # This is done for you! Assuming your Model and View implementations are correct, you should have a 
 # fully working command-line application!
 class Controller:
-
     def __init__(self, model, view):
         self.model = model
         self.view = view
@@ -553,10 +565,10 @@ class Controller:
         self.view.display_welcome()
 
         while not self.model.game_over() and not self.model.player_wins():
-            self.view.show_man(10 - self.model.num_attempts)
-            self.view.display_text(f"Word guessed so far: {' '.join(self.model.correct_letters)}")
+            self.view.show_man(10 - self.model.lives)
+            self.view.display_text(f"Word guessed so far: {' '.join(self.model.word_so_far)}")
             self.view.display_text(f"Incorrect guesses: {', '.join(self.model.incorrect_letters)}")
-            self.view.display_text(f"Number of guesses left: {self.model.num_attempts}")
+            self.view.display_text(f"Number of lives left: {self.model.lives}")
             guess = self.view.get_next_guess()
 
             if len(guess) != 1 or not guess.isalpha():
@@ -570,9 +582,9 @@ class Controller:
             self.view.show_man(10)
             self.view.display_game_over()
         elif self.model.player_wins():
-            self.view.show_man(21 - self.model.num_attempts)
-            self.view.display_text(f"Number of attempts: {10 - self.model.num_attempts}")
-            self.view.display_text(f"Final word: {''.join(self.model.correct_letters)}")
+            self.view.show_man(21 - self.model.lives)
+            self.view.display_text(f"Number of lives lost: {10 - self.model.lives}")
+            self.view.display_text(f"Final word: {''.join(self.model.word_so_far)}")
             self.view.display_game_won()
 
 
