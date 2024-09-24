@@ -20,9 +20,6 @@ class Model:
 
         self.possible_words = possible_words
 
-        # (TODO) Here, create a class field "self.word_to_guess", and set its initial value to be a random 'choice'
-        # *wink *wink from the given list of possible words 
-        # Hint: research random.choice() 
         self.word_to_guess = random.choice(self.possible_words)
 
         # This list will contain the word the player has guessed so far. Starts off as a list of blanks.
@@ -584,12 +581,14 @@ class Controller:
         elif self.model.player_wins():
             self.view.show_man(21 - self.model.lives)
             self.view.display_text(f"Number of lives lost: {10 - self.model.lives}")
-            self.view.display_text(f"Final word: {''.join(self.model.word_so_far)}")
+            self.view.display_text(f"Word: {''.join(self.model.word_to_guess)}")
             self.view.display_game_won()
 
 
 if __name__ == "__main__":
-    words = ['colorstack', 'black', 'latinx', 'excellence', 'chipotle', "model", "view", "controller"]
+    with open("words.txt") as word_file:
+        words = word_file.readlines() 
+        words = [word.strip() for word in words]
     model = Model(words)
     view = View()
     controller = Controller(model, view)
