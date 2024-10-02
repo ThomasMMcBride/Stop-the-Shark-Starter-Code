@@ -589,8 +589,10 @@ if __name__ == "__main__":
     with open("words.txt") as word_file:
         words = word_file.readlines() 
         words = [word.strip() for word in words]
-    model = Model(words)
-    view = View()
-    controller = Controller(model, view)
+    # Create model
+
+    # Create view
     
-    controller.go()
+    # Create controller, and pass model and view to the controller
+    
+    # Make the controller go()!
