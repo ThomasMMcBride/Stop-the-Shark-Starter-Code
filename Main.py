@@ -549,7 +549,7 @@ class View:
 
 
 
-# Controller: Manipulate the view and controller and keep the game running until the game is over
+# Controller: Manipulate the model and view and keep the game running until the game is over
 
 # This is done for you! Assuming your Model and View implementations are correct, you should have a 
 # fully working command-line application!
